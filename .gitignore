@@ -1,0 +1,66 @@
+# Archivos de entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependencias de Node.js
+node_modules/
+
+# Archivos de registro y caché
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Directorios de construcción y distribución
+/dist
+/build
+/out
+
+# Archivos de configuración de IDEs y editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de cobertura de pruebas
+/coverage
+
+# Archivos de paquetes de npm/yarn
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos de caché de TypeScript (si se usa)
+.tsbuildinfo
+
+# Archivos de caché de Babel (si se usa)
+.babel-cache/
+
+# Archivos de caché de ESLint (si se usa)
+.eslintcache
+
+# Archivos de caché de Prettier (si se usa)
+.prettiercache
+
+# Archivos de caché de Jest (si se usa)
+.jest-cache/
+
+# Archivos de caché de Parcel (si se usa)
+.cache/
+.parcel-cache/
+
+# Archivos de caché de Turbo (si se usa)
+.turbo/
+
+# Archivos de caché de Next.js (si se usa)
+.next/

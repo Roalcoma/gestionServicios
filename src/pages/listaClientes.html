@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Clientes</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/listaClientes.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-toggle" id="sidebarToggle">☰</div>
+    <h1><span class="sidebar-text">Dashboard</span></h1>
+    <ul>
+      <li><a href="#"><i class="fas fa-users"></i> <span class="sidebar-text">Clientes</span></a></li>
+      <li><a href="#"><i class="fas fa-cogs"></i> <span class="sidebar-text">Servicios</span></a></li>
+      <li><a href="#"><i class="fas fa-money-bill-wave"></i> <span class="sidebar-text">Pagos</span></a></li>
+    </ul>
+  </div>
+  <div class="main-content" id="mainContent">
+    <h1>Lista de Clientes</h1>
+    <div class="button-cliente-container">
+      <button id="btn-crear-cliente">Crear Cliente</button>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar cliente por nombre...">
+    </div>
+    <div class="clientes-container" id="clientes-container">
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2 id="modal-title">Detalles del Cliente</h2>
+        <form id="client-info" class="client-info">
+          <p>Correo: <input type="email" id="input-correo"></p>
+          <p>Cif: <input type="text" id="input-cif"></p>
+          <p>Telefono: <input type="text" id="input-telf"></p>
+          <p>Direccion: <input type="text" id="input-direccion"></p>
+          <button type="submit" id="button-actulizar"> Actualizar Informacion </button>
+        </form>
+        <h3>Servicios</h3>
+        <div class="services-container" id="services-container"></div>
+        <div class="service-info" id="service-info"></div>
+      </div>
+    </div>
+
+    <!-- Nuevo modal para nuevoServicio -->
+    <div class="modal" id="nuevoServicioModal">
+      <div class="modal-content styled-modal">
+        <span class="close" id="closeNuevoServicio">&times;</span>
+        <h3>Agregar Nuevo Servicio</h3>
+        <form id="formNuevoServicio">
+          <p>Servicio: <select name="servicio" id="select-servicios">
+            <option value="">Seleccione un servicio...</option>
+          </select></p>
+          <p>Proveedor: <select name="proveedor" id="select-proveedor">
+            <option value="">Seleccione un proveedor...</option>
+          </select></p>
+          <p>Tiempo del servicio: <select name="tiempo" id="select-tiempos">
+            <option value="">Seleccione un tiempo...</option>
+          </select></p>
+          <p>Tiempo de pago: <select name="tiempo" id="select-tiempo-pago">
+            <option value="">Seleccione un tiempo...</option>
+          </select></p>
+          <p>Cantidad: <input type="number" id="input-cantidad"></p>
+          <p>Total$: <input type="number" step="0.01" id="input-total"></p>
+          <p>Fecha inicio: <input type="date" id="input-fecha-inicio"></p>
+          
+          <button type="submit" id="button-actulizar"> Guardar servicio </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Nuevo modal para nuevoServicio -->
+    <div class="modal" id="nuevoPagoModal">
+      <div class="modal-content styled-modal">
+        <span class="close" id="closePagoModal">&times;</span>
+        <h3>Agregar Nuevo Pago</h3>
+        <form id="formNuevoPago">
+          <p>Referencia del pago: <input type="text" id="input-referencia-pago" required></p>
+          <p>Tasa: <input type="number" step="0.0001" id="input-tasa" required></p>
+          <p>Nombre acreedor: <input type="text" id="input-nombre"></p>
+          <p>Monto(USD): <input type="number" step="0.01" id="input-monto-usd" required></p>
+          <p>Monto(VES): <input type="number" step="0.01" id="input-monto-ves" required></p>
+          <p>Fecha transaccion: <input type="date" id="input-fecha-transaccion" required></p>
+          <p>Comentario: <input type="text" id="input-comentario"></p>
+          <button type="submit" id="button-registrar-pago"> Registrar Pago </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Nuevo modal para nuevoServicio -->
+    <div class="modal" id="crearClienteModal">
+      <div class="modal-content styled-modal">
+        <span class="close" id="closeCrearClienteModal">&times;</span>
+        <h3>Agregar Nuevo Cliente</h3>
+        <form id="form-crear-cliente">
+          <p>NOMBRE CLIENTE: <input type="text" id="input-nombre-cliente" required></p>
+          <p>CIF: <input type="text" id="input-cif-cliente" required></p>
+          <p>EMAIL: <input type="email" id="input-email-cliente"></p>
+          <p>TELEFONO: <input type="number" id="input-telefono-cliente" required></p>
+          <p>DIRECCION: <input type="text" id="input-direccion-cliente" required></p>
+          <div class="custom-checkbox">
+            <p>ES EMPRESA: </p>
+            <input type="checkbox" id="input-es-empresa" required>
+            <label for="input-es-empresa"></label>
+
+          </div>
+          <p>NOMBRE CONTACTO: <input type="text" id="input-comentario"></p>
+          <button type="submit" id="button-registrar-pago"> Crear cliente </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="js/listaClientes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const mainContent = document.getElementById('mainContent');
+
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('sidebar-collapsed');
+      });
+    });
+  </script>
+</body>
+</html>

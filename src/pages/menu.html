@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f5f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-item i {
+      font-size: 36px;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .menu-item span {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333333;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      .menu-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <div class="menu-container">
+    <div class="menu-item" onclick="navigateTo('buchhaltung')">
+      <i class="fas fa-file-invoice-dollar"></i>
+      <span>Buchhaltung</span>
+    </div>
+    <div class="menu-item" onclick="navigateTo('wissensdatenbank')">
+      <i class="fas fa-book"></i>
+      <span>Wissensdatenbank</span>
+    </div>
+    <div class="menu-item" onclick="navigateTo('esignatur')">
+      <i class="fas fa-pen-fancy"></i>
+      <span>E-Signatur</span>
+    </div>
+    <div class="menu-item" onclick="navigateTo('crm')">
+      <i class="fas fa-users"></i>
+      <span>CRM</span>
+    </div>
+    <div class="menu-item" onclick="navigateTo('studio')">
+      <i class="fas fa-paint-brush"></i>
+      <span>Studio</span>
+    </div>
+    <div class="menu-item" onclick="navigateTo('abonnements')">
+      <i class="fas fa-calendar-alt"></i>
+      <span>Abonnements</span>
+    </div>
+    <!-- Add more menu items as needed -->
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      alert(`Navigating to ${page}`);
+      // Aquí puedes redirigir al usuario a una página específica
+      // Ejemplo: window.location.href = `${page}.html`;
+    }
+  </script>
+</body>
+</html>

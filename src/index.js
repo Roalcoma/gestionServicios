@@ -32,6 +32,7 @@ server.on('connection', (socket) => {
 app.get('/', (req, res) => res.sendFile(__dirname + '/pages/login.html'))
 app.get('/menu', (req, res) => res.sendFile(__dirname + '/pages/menu.html'))
 app.get('/clientes', (req, res) => res.sendFile(__dirname + '/pages/listaClientes.html'))
+app.get('/servicios', (req, res) => res.sendFile(__dirname + '/pages/servicios.html'))
 
 app.use('/auth', routerLogin)
 app.use('/api/allRoutes', allRoutes)

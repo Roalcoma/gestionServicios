@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Clientes</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/servicios.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-toggle" id="sidebarToggle">☰</div>
+    <h1><span class="sidebar-text">Dashboard</span></h1>
+    <ul>
+      <li><a href="#"><i class="fas fa-users"></i> <span class="sidebar-text">Clientes</span></a></li>
+      <li><a href="#"><i class="fas fa-cogs"></i> <span class="sidebar-text">Servicios</span></a></li>
+      <li><a href="#"><i class="fas fa-money-bill-wave"></i> <span class="sidebar-text">Pagos</span></a></li>
+    </ul>
+  </div>
+  <div class="main-content" id="mainContent">
+    <h1>Lista de Servicios</h1>
+    <div class="button-cliente-container">
+      <button id="btn-crear-cliente">Crear Servicio</button>
+      <button id="btn-modal-proveedores">Proveedores</button>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar servicio...">
+    </div>
+    <div class="servicios-container" id="servicios-container">
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2 id="modal-title">Detalles del Cliente</h2>
+        <form id="client-info" class="client-info">
+          <p>Correo: <input type="email" id="input-correo"></p>
+          <p>Cif: <input type="text" id="input-cif"></p>
+          <p>Telefono: <input type="text" id="input-telf"></p>
+          <p>Direccion: <input type="text" id="input-direccion"></p>
+          <button type="submit" id="button-actulizar"> Actualizar Informacion </button>
+        </form>
+        <h3>Servicios</h3>
+        <div class="services-container" id="services-container"></div>
+        <div class="service-info" id="service-info"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="js/servicios.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const mainContent = document.getElementById('mainContent');
+
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('sidebar-collapsed');
+      });
+    });
+  </script>
+</body>
+</html>
